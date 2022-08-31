@@ -95,12 +95,7 @@ def GetOneFunctionVarianceDifferentModels(dataDir = 'D:\\Figures\\OneFunction_ra
                        subsetCount[I]+=1
                        identifiers = tuple(np.array(re.findall('\d+',fname)).astype(int))
                        modelFitList.append({'Id':identifiers,'fit':res,'normal_var':varsInclude[0],'added_var':addVar,'bestFit':subsetText[I]})
-    fig,ax = plt.subplots(1)
-    ax.bar(range(16),subsetCount)
-    ax.set_xticks(range(16))
-    ax.set_xticklabels(subsetText,rotation = 45)
-    ax.set_frame_on(False)
-    fig.suptitle('Number of fits per model\nTotal Number = '+str(int(np.sum(subsetCount))))
+    
     if (return_subset):
         return subsetText,subsetCount
     return pd.DataFrame(modelFitList)
